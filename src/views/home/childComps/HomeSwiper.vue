@@ -3,7 +3,7 @@
     <swiper-item v-for="item in banners">
       <!--        注意需要加冒号，因为使用了变量里面的属性-->
       <a :src="item.link">
-        <img :src="item.image" alt="">
+        <img :src="item.image" alt="" @load="imageLoad">
       </a>
 
     </swiper-item>
@@ -22,9 +22,23 @@ export default {
       }
     }
   },
+  data(){
+    return{
+      isLoad:false
+    }
+  },
   components:{
     Swiper,
     SwiperItem,
+  },
+  methods:{
+    imageLoad(){
+      if(!this.isLoad){
+        this.$emit('swiperImageLoad')
+        this.isLoad = true
+      }
+
+    }
   }
 }
 </script>
