@@ -7,6 +7,12 @@ export function getDetail(iid){
     }
   })
 }
+export function getRecommend(){
+  return request({
+    url:'http://152.136.185.210:7878/api/hy66/recommend',
+
+  })
+}
 export class  Goods {
   constructor(itemInfo,columns,services) {
     this.title = itemInfo.title

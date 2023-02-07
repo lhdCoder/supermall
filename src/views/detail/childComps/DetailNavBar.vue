@@ -28,6 +28,7 @@ export default {
   methods:{
     titleClick(index){
       this.currentIndex = index
+      this.$emit('titleClick',index)//点击详情页通过emit把index给传出去
     },
     backClick(){
       this.$router.back()
